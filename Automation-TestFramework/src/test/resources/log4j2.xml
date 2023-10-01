@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" name="RoutingTest">
     <Properties>
-        <Property name="baseDir">D:/logs</Property>
+        <Property name="baseDir">logs</Property>
     </Properties>
 
     <Appenders>

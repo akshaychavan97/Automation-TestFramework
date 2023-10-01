@@ -9,12 +9,13 @@ public class AppTest extends TestBase{
 
   @Test
   public void Test() {
-    Setup();
+    setup();
+    seleniumMethods.navigateURL("https://www.google.com");
   }
 
   @AfterClass
   public void tearDown(){
-    QuitDriver();
+    quitDriver();
 
   }
 }

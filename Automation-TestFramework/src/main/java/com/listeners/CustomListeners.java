@@ -1,24 +1,30 @@
 package com.listeners;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.config.DriverConfigManager;
-import com.reportManager.ExtentReportManager;
+import com.aventstack.extentreports.Status;
+import com.base.TestBase;
+import com.config.TestConfigManager;
+import com.reportmanager.ExtentReportManager;
 import org.testng.*;
 
-public class CustomListeners implements ITestListener, ISuiteListener {
+public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
     private ExtentReports reports;
     @Override
     public void onStart(ISuite suite) {
         ISuiteListener.super.onStart(suite);
-        DriverConfigManager driverConfigManager=DriverConfigManager.getInstance();
-        driverConfigManager.setConfig();
+        TestConfigManager testConfigManager = TestConfigManager.getInstance();
+        testConfigManager.setConfig();
         reports= ExtentReportManager.createExtentReport();
     }
 
     @Override
     public void onFinish(ISuite suite) {
         ISuiteListener.super.onFinish(suite);
+        reports.setSystemInfo("Executed by User: ",System.getProperty("user.name"));
+        reports.setSystemInfo("Executed on OS: ",System.getProperty("os.name"));
+        reports.setSystemInfo("Executed Browser: ",System.getProperty("browser"));
         reports.flush();
+        log.info("Execution is Completed Please find report on Path - "+TestConfigManager.getInstance().getConfig("extentReportPath"));
     }
 
     @Override
@@ -30,16 +36,19 @@ public class CustomListeners implements ITestListener, ISuiteListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
+        ExtentReportManager.getExtentTest().log(Status.PASS,result.getName()+" is Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
+        ExtentReportManager.getExtentTest().log(Status.FAIL,result.getName()+" is Passed");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
+        ExtentReportManager.getExtentTest().log(Status.SKIP,result.getTestName()+" is Skipped");
     }
 
     @Override

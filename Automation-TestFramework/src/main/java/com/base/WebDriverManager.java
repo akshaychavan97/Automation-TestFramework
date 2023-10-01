@@ -3,7 +3,10 @@ package com.base;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverManager {
-    public static ThreadLocal<WebDriver> driver= new ThreadLocal<>();
+    private WebDriverManager(){
+        throw new IllegalStateException("Web Driver Manager Class");
+    }
+    private static ThreadLocal<WebDriver> driver= new ThreadLocal<>();
     public static WebDriver getDriver() {
         return driver.get();
     }
