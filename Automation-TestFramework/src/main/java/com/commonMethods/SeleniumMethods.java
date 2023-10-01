@@ -1,6 +1,7 @@
 package com.commonMethods;
 
 import com.base.WebDriverManager;
+import com.reportManager.ExtentReportManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -19,5 +20,8 @@ public class SeleniumMethods {
    public void typeintoWebElement(WebElement element,String value){
         element.sendKeys(value);
 
+   }
+   private void logging(String message){
+       ExtentReportManager.getExtentTest().info(message);
    }
 }

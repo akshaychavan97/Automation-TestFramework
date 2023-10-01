@@ -1,7 +1,6 @@
 package com.base;
 
 
-import com.commonMethods.SeleniumMethods;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
@@ -16,5 +15,6 @@ public class AppTest extends TestBase{
   @AfterClass
   public void tearDown(){
     QuitDriver();
+
   }
 }

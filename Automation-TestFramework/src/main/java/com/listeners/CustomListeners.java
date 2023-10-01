@@ -1,25 +1,30 @@
 package com.listeners;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.config.DriverConfigManager;
+import com.reportManager.ExtentReportManager;
 import org.testng.*;
 
 public class CustomListeners implements ITestListener, ISuiteListener {
+    private ExtentReports reports;
     @Override
     public void onStart(ISuite suite) {
         ISuiteListener.super.onStart(suite);
         DriverConfigManager driverConfigManager=DriverConfigManager.getInstance();
         driverConfigManager.setConfig();
-
+        reports= ExtentReportManager.createExtentReport();
     }
 
     @Override
     public void onFinish(ISuite suite) {
         ISuiteListener.super.onFinish(suite);
+        reports.flush();
     }
 
     @Override
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
+        ExtentReportManager.setExtentTest(reports.createTest(result.getName(),result.getName()));
     }
 
     @Override
