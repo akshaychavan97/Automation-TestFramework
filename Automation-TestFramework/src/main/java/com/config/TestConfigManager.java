@@ -33,9 +33,9 @@ public class TestConfigManager {
         configData.put("extentReportPath",extentPath);
 
     }
-    public String getConfig(String congiName){
+    public String getConfig(String configName){
 
-        return configData.get(congiName);
+        return configData.get(configName);
     }
 
 
