@@ -4,13 +4,22 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.Status;
 import com.base.TestBase;
 import com.config.TestConfigManager;
+import com.email.EmailHandler;
 import com.reportmanager.ExtentReportManager;
 import org.testng.*;
 
+import java.io.IOException;
+
 public class CustomListeners extends TestBase implements ITestListener, ISuiteListener {
     private ExtentReports reports;
+    private EmailHandler emailHandler = new EmailHandler();
     @Override
     public void onStart(ISuite suite) {
+        try {
+            emailHandler.createFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         ISuiteListener.super.onStart(suite);
         TestConfigManager testConfigManager = TestConfigManager.getInstance();
         testConfigManager.setConfig();
@@ -19,6 +28,8 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 
     @Override
     public void onFinish(ISuite suite) {
+
+        emailHandler.updateHeader();
         ISuiteListener.super.onFinish(suite);
         reports.setSystemInfo("Executed by User: ",System.getProperty("user.name"));
         reports.setSystemInfo("Executed on OS: ",System.getProperty("os.name"));
@@ -35,6 +46,7 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
 
     @Override
     public void onTestSuccess(ITestResult result) {
+        emailHandler.updateStatus("Test","10.14","10.25","Pass");
         ITestListener.super.onTestSuccess(result);
         ExtentReportManager.getExtentTest().log(Status.PASS,result.getName()+" is Passed");
     }

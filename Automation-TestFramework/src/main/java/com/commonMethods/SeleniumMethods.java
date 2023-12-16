@@ -11,8 +11,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumMethods extends TestBase {
-    public void navigateURL(String url){
+    public void navigateURL(String url,Boolean screenShot){
         WebDriverManager.getDriver().get(url);
+        logging(null,"navigate",url,screenShot);
     }
     public WebElement locateElement(By locator){
         return WebDriverManager.getDriver().findElement(locator);
@@ -77,6 +78,8 @@ public class SeleniumMethods extends TestBase {
            logStatement = element+" Web Element was Clicked";
        } else if (keyword.equalsIgnoreCase("selected")){
            logStatement = value+ " was Selected From DropDown in Web Element "+element ;
+       } else if (keyword.equalsIgnoreCase("navigate")){
+           logStatement = "Navigated to URL - "+value;
        }else {
            logStatement = "Unknown Action Occurred Please Contact Automation Framework Developer";
        }

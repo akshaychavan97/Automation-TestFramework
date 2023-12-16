@@ -41,5 +41,9 @@ public class TestBase {
         WebDriverManager.getDriver().quit();
         WebDriverManager.remove();
     }
+    public void loadBrowser(String url){
+        seleniumMethods.navigateURL(url,true);
+        driver().manage().window().maximize();
+    }
 
 }
