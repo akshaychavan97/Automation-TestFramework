@@ -5,7 +5,7 @@ import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.Properties;
 public class EmailHandler {
-    String path="C:\\Users\\Akshay Chavan\\Java\\Automation-TestFramework\\Automation-TestFramework\\src\\test\\resources\\EmailResource.html";
+    String path=System.getProperty("user.dir")+"\\src\\test\\resources\\EmailResource.html";
     private int totalTestCase=0;
     private int passedTestCase=0;
     private int faileTestCase=0;
