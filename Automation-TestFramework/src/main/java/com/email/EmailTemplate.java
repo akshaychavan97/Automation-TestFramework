@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class EmailTemplate {
-    private String template=System.getProperty("user.dir")+"\\test\\resources\\EmailTemplate.html";
+    private String template=System.getProperty("user.dir")+"\\src\\test\\resources\\EmailTemplate.html";
     String path=System.getProperty("user.dir")+"\\src\\test\\resources\\EmailResource.html";
     public void createEmailHtml(String path) throws IOException {
         File input = new File(template);
