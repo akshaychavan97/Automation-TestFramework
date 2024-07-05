@@ -30,6 +30,7 @@ public class CustomListeners extends TestBase implements ITestListener, ISuiteLi
     public void onFinish(ISuite suite) {
 
         emailHandler.updateHeader();
+        //emailHandler.sendEmail(emailHandler.path);
         ISuiteListener.super.onFinish(suite);
         reports.setSystemInfo("Executed by User: ",System.getProperty("user.name"));
         reports.setSystemInfo("Executed on OS: ",System.getProperty("os.name"));

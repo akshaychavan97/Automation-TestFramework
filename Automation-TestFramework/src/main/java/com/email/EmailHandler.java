@@ -5,7 +5,7 @@ import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.util.Properties;
 public class EmailHandler {
-    String path="C:\\Users\\Akshay Chavan\\Java\\Automation-TestFramework\\Automation-TestFramework\\src\\test\\resources\\EmailResource.html";
+    public String path="C:\\Users\\Akshay Chavan\\Java\\Automation-TestFramework\\Automation-TestFramework\\src\\test\\resources\\EmailResource.html";
     private int totalTestCase=0;
     private int passedTestCase=0;
     private int faileTestCase=0;
@@ -25,20 +25,21 @@ public class EmailHandler {
         emailTemplate.updateHtmlFile(path,"TestData","INTG",passedTestCase,faileTestCase,skippedTestCase,totalTestCase);
 
     }
-    public static void sendEmail(String toAddress, String subject, String htmlContent) {
+    public  void sendEmail(String htmlContent) {
         // Sender's email and password
-        final String fromEmail = "akshaychavanex@gmail.com";
-        final String password = "Akshay@ex";
+        final String fromEmail = "@gmail.com";
+        final String password = "@ex";
+        final String toAddress="@gmail.com";
 
         // Set up properties for the mail server
-        Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true");
 
         // Create a session with authentication
-        Session session = Session.getInstance(props, new Authenticator() {
+        Session session = Session.getInstance(prop, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(fromEmail, password);
@@ -50,7 +51,7 @@ public class EmailHandler {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toAddress));
-            message.setSubject(subject);
+            message.setSubject("Automation Result");
 
             // Set the content as HTML
             message.setContent(htmlContent, "text/html");

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Your Email Template</title> 
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Overall background color */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* Container background color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align content */
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin to the bottom for separation */
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1, h2 {
+            color: #333333;
+        }
+
+        p {
+            color: #666666;
+            text-align: left; /* Align text to the left */
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db; /* Call-to-action button color */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            text-align: left; /* Align text in table cells to the left */
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .left-align {
+            text-align: left; /* Align text to the left */
+        }
+
+        .thank-you {
+            /* Remove background color and set color to white */
+            background-color: transparent;
+            color: #ffffff;
+        }
+
+        .bar-graph {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .bar {
+            position: relative;
+            flex-grow: 1;
+            height: 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+        .bar-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+        }
+
+        .bar-green {
+            background-color: #28a745; /* Green color for passed test cases */
+        }
+
+        .bar-red {
+            background-color: #dc3545; /* Red color for failed test cases */
+        }
+
+        .bar-yellow {
+            background-color: #ffc107; /* Yellow color for skipped test cases */
+        }
+    </style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <div class="header"> <!-- Replace 'https://www.voyaindia.com/wp-content/uploads/2023/09/voyaindialogo.svg' with the actual logo URL --> 
+    <img src="https://www.voyaindia.com/wp-content/uploads/2023/09/voyaindialogo.svg" alt="Company Logo"> 
+   </div> 
+   <h1>Your Email Heading</h1> 
+   <h2 style="color: #0073e6;">Test Execution Details</h2> <!-- Header color for test execution details --> 
+   <p class="left-align">This is a simple email template. Customize it according to your needs.</p> 
+   <h2 class="left-align">Summary:</h2> 
+   <ul class="left-align"> 
+    <li>Application: TestData</li> <!-- Header color for application name --> 
+    <li>Region: INTG</li> 
+    <li>Passed Test Cases: 0</li> 
+    <li>Failed Test Cases: 0</li> 
+    <li>Skipped Test Cases: 0</li> 
+    <li>Total Test Cases: 0</li> 
+   </ul> 
+   <div class="bar-graph"> 
+    <div class="bar bar-green" style="flex-basis: NaN%;"> 
+     <div class="bar-text">
+       10 
+     </div> <!-- Number of passed test cases --> 
+    </div> 
+    <div class="bar bar-red" style="flex-basis: NaN%;"> 
+     <div class="bar-text">
+       2 
+     </div> <!-- Number of failed test cases --> 
+    </div> 
+    <div class="bar bar-yellow" style="flex-basis: NaN%;"> 
+     <div class="bar-text">
+       1 
+     </div> <!-- Number of skipped test cases --> 
+    </div> 
+   </div> 
+   <h2>Test Case Information:</h2> 
+   <table> 
+    <thead> 
+     <tr> 
+      <th>TestCase Name</th> 
+      <th>Start Time</th> 
+      <th>End Time</th> 
+      <th>Total Time (Sec)</th> 
+      <th>Status</th> 
+      <th>Browser Name</th> 
+     </tr> 
+    </thead> 
+    <tbody> <!-- Add your test case details here --> 
+     <tr> 
+     </tr> <!-- Add more rows as needed --> 
+     <tr> 
+      <td>Test</td> 
+      <td>10.14</td> 
+      <td>10.25</td> 
+      <td>10</td> 
+      <td>Pass</td> 
+      <td>Chrome</td> 
+     </tr> 
+     <tr> 
+      <td>Test</td> 
+      <td>10.14</td> 
+      <td>10.25</td> 
+      <td>10</td> 
+      <td>Pass</td> 
+      <td>Chrome</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p class="left-align thank-you">Thanks and Regards,</p> <!-- Remove background color --> 
+   <p class="left-align thank-you">Automation Team</p> <!-- Remove background color --> 
+  </div>  
+ </body>
+</html>

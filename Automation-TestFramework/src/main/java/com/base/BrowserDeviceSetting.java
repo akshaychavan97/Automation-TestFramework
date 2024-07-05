@@ -20,7 +20,9 @@ public class BrowserDeviceSetting extends TestBase {
         } else if (browser.equals("firefox")) {
             FirefoxDriver firefoxDriver = new FirefoxDriver();
             localdriver = firefoxDriver;
-        } else {
+        } else if (browser.equals("appium-android")) {
+
+        }else {
             log.info("Wrong Browser Name");
         }
         return localdriver;

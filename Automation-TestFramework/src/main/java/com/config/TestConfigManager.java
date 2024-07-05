@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.base.TestBase.log;
 import static com.util.TestUtil.isWindows;
 
 public class TestConfigManager {
@@ -32,6 +33,17 @@ public class TestConfigManager {
         }
         configData.put("extentReportPath",extentPath);
 
+    }
+    public void setConfig(String propertyName){
+        try {
+            if (config.getProperty(propertyName)!=null){
+                configData.put(propertyName,config.getProperty(propertyName));
+            }else {
+
+            }
+        }catch (NullPointerException e){
+
+        }
     }
     public String getConfig(String configName){
 
